@@ -1,0 +1,39 @@
+# LandLens API contract — the single source of truth for api/ AND web/.
+# Day 1 assignment: design this BEFORE writing any Express code.
+openapi: 3.0.3
+info:
+  title: LandLens Parcel Insights API
+  version: 0.1.0
+  license:
+    name: MIT
+servers:
+  - url: http://localhost:3000
+    description: Local development
+
+paths: {}
+  # TODO (Day 1): five operations
+  #   1. Create a parcel
+  #   2. List parcels (optional filter by suburb?)
+  #   3. Get one parcel by id
+  #   4. Suburb stats: count, median valuation, valuation per m2
+  #   5. Request an upload URL for a CSV import (used on Day 4)
+  # For each one decide: path, method, operationId, request body, responses (success AND errors).
+
+components:
+  schemas:
+    Parcel:
+      type: object
+      required: [id, lotPlan, suburb, areaSqm, valuationAud, valuationDate, createdAt]
+      properties:
+        id: { type: string, readOnly: true }
+        lotPlan: { type: string, pattern: '^[0-9]+[A-Z]+[0-9]+$' }
+        suburb: { type: string, minLength: 1 }
+        areaSqm: { type: number, minimum: 0, exclusiveMinimum: true }
+        valuationAud: { type: integer, minimum: 0, exclusiveMinimum: true }
+        valuationDate: { type: string, format: date }
+        createdAt: { type: string, format: date-time, readOnly: true }
+    # TODO (Day 1): Parcel, NewParcel (what the client sends), SuburbStats, Error
+    #   Questions: which fields are required? Who generates the id? Should area and
+    #   valuation have a minimum? What format should the valuation date use?
+    #   samples/parcels-sample.csv shows real-world-ish fields — your schema decides the final shape.
+  # TODO (Day 5): securitySchemes — a bearer JWT scheme for Cognito
