@@ -1,0 +1,18 @@
+node_modules/
+dist/
+coverage/
+cdk.out/
+*.tsbuildinfo
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+.venv/
+.pytest_cache/
+
+# Generated from openapi.yaml — regenerate with `npm run gen:api`
+web/src/api/schema.d.ts
+
+.DS_Store

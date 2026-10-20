@@ -1,0 +1,6 @@
+# Local development dependencies (Day 2).
+# TODO (Day 2):
+#   - a "dynamodb" service using the amazon/dynamodb-local image, port 8000
+#   - (optional) an "api" service that builds ./api and points at the local DynamoDB
+#   Question: inside the compose network, is the DynamoDB host "localhost"? Why not?
+services: {}

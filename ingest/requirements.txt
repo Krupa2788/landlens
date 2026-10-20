@@ -1,0 +1,3 @@
+# Runtime dependencies for the Lambda.
+# boto3 is already in the Lambda Python runtime — should you still pin it here? (Research this.)
+boto3

@@ -1,0 +1,21 @@
+# Azure DevOps pipeline (Day 6). Skeleton only — fill in each stage.
+trigger:
+  branches:
+    include: [main]
+
+# TODO (Day 6) Stage "Test" — three PARALLEL jobs:
+#   - api:    npm ci, typecheck, jest
+#   - web:    npm ci, vitest, build
+#   - ingest: pip install -r requirements-dev.txt, pytest
+#   Bonus: cache npm and pip downloads.
+#
+# TODO (Day 6) Stage "Deploy" — depends on Test, runs on main only
+#   - a deployment job targeting an Azure DevOps "environment" with an approval check
+#   - AWS credentials from secret variables / a variable group (never in this file!)
+#   - npx cdk deploy from infra/
+#
+# TODO (Day 6) Stage "Smoke" — Playwright API tests against the deployed ALB URL
+#
+# TODO (Day 6) Cypress e2e for web/ — which stage does it belong in, and why?
+
+stages: []
